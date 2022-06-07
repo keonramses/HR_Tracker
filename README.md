@@ -29,3 +29,6 @@ to make it easily deployable should you want to use it regardless of your busine
 # I make your project more badass than it is right now!
 By all means please do, but bear in mind the current license attached to the project, i don't care if decide not to pay your respects (shout me out please)
 just remember open-source is life.
+
+# I can't wait any longer how can i set it up?
+Right into it this project has a functioning login system with password reset functionality (can only be triggered by the HR manager)
