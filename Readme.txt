@@ -1,5 +1,4 @@
-Project By: Kenenth Iwuchukwu 
-CSIS 4495
+Project By: Kenenth Iwuchukwu
 
 HRTracker:
 ""
