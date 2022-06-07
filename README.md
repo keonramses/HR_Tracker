@@ -1,6 +1,9 @@
 # HR Tracker (Formerly referred to as Whiteboard)
 A web based human resource tool, that helps keep track of employees as well whilst providing vital information need for day to day operation.
 
+![image](https://user-images.githubusercontent.com/52069413/172271618-acf6d4f0-ba5c-42b5-866f-8b4d52e7e4ad.png)
+
+
 
 # Why does this exist?
 In light of the pandemic that has brought most of the world to a grinding halt, organizations and businesses having to switch to a work from home model, but this in itself has brought along with it a problem, not every organization has a functioning human resource tracker, thereby causing a lapse in information on 
