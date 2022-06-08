@@ -30,8 +30,8 @@ I am glad you asked that, while this project does do everything i wanted it to d
 forward i plan to rewrite the codebase and optimize (tie up loose ends hehee) the project as a whole with the main intent to make it as dynamic as possible
 to make it easily deployable should you want to use it regardless of your business focus so as long as your usecase fits what intended the project for.
 
-# I make your project more badass than it is right now!
-By all means please do, but bear in mind the current license attached to the project, i don't care if decide not to pay your respects (shout me out please)
+# I'll make your project more badass than it is right now!
+By all means please do, but bear in mind the current license attached to the project, i don't care if you decide not to pay your respects (shout me out please),
 just remember open-source is life.
 
 # I can't wait any longer how can i set it up?
