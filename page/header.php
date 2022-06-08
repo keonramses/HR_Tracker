@@ -57,7 +57,7 @@ if(isset($_COOKIE["PHPSESSID"])){
         }
     </script> 
 
-    <title>HRTracker | CSIS 4495</title>
+    <title>HRTracker</title>
     <link rel="shortcut icon" type="image/jpg" href="page\favicon.ico"/>
 
       <!-- Start session and redirect to login page if not logged in -->
