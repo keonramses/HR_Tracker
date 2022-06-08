@@ -28,7 +28,7 @@
         mysqli_stmt_bind_param($stmt, "si", $loginPwd, $id);
         mysqli_stmt_execute($stmt);
         
-        // Send password to email after employee profile is created
+        // Send password to email after employee password is reset.
                     $headers = 'From: HR Manager' . "\r\n" .
                                'Reply-To: webmaster@test.com' . "\r\n" .
                                'X-Mailer: PHP/' . phpversion();
