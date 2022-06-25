@@ -29,7 +29,7 @@
         mysqli_stmt_execute($stmt);
         
         // Send password to email after employee password is reset.
-                    $headers = 'From: HR Manager' . "\r\n" .
+                    $headers = 'From: HR Manager <webmaster@test.com>' . "\r\n" .
                                'Reply-To: webmaster@test.com' . "\r\n" .
                                'X-Mailer: PHP/' . phpversion();
                     $msg = "Hello ".$q1['name'].",\nYour HRTracker Account Password has been Reset! \nYour New Password is: ".$password;
