@@ -19,14 +19,16 @@ $email_err = $password_err = $login_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if username is empty
-    if(empty(trim($_POST["email"]))){
+    $empty_email = trim($_POST["email"]);
+    if(empty($empty_email)){
         $email_err = "Please enter email.";
     } else{
         $email = $_POST['email'];
     }
     
     // Check if password is empty
-    if(empty(trim($_POST["password"]))){
+    $empty_password = trim($_POST["password"]);
+    if(empty($empty_password)){
         $password_err = "Please enter your password.";
     } else{
         $password = $_POST['password'];
@@ -111,12 +113,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 
 <body>
-    <header id ="header">
-            <!--img src="logo.png" alt="logo"-->
-            <span>HRTracker</span>
-    </header>
+  
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="login-box">
+            <header id ="header">
+                <span>HRTracker</span>
+            </header>
             <h1>Login</h1>
            
            <?php 
