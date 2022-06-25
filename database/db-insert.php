@@ -60,7 +60,7 @@
                     //echo "Your Password Is : ".$password;
 
                     // Send password to email after employee profile is created
-                    $headers = 'From: HR Manager' . "\r\n" .
+                    $headers = 'From: HR Manager <webmaster@test.com>' . "\r\n" .
                                'Reply-To: webmaster@test.com' . "\r\n" .
                                'X-Mailer: PHP/' . phpversion();
                     $msg = "Hello ".$name.",\nYour HRTracker Account has been created! \nYour Email is: ".$email.  " and your password is: ".$password.".";
