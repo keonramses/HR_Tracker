@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<?php // set cookie samesite attribute to SameSite=Lax, which prevents the cookie from being sent in a cross-site request.
+<?php session_start(); 
+
+// set cookie samesite attribute to SameSite=Lax, which prevents the cookie from being sent in a cross-site request.
 // This behavior protects user data from accidentally leaking to third parties and cross-site request forgery.
 if(isset($_COOKIE["PHPSESSID"])){
     header('Set-Cookie: PHPSESSID='.$_COOKIE["PHPSESSID"].'; SameSite="Lax"');
 }
-?>
+
+// Start session and redirect to login page if not logged in //
+
+if(!isset($_SESSION['loggedin'])){ //if login in session is not set
+            header("Location: page/login.php");
+        }
+
+?> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -60,14 +69,6 @@ if(isset($_COOKIE["PHPSESSID"])){
     <title>HRTracker</title>
     <link rel="shortcut icon" type="image/jpg" href="page\favicon.ico"/>
 
-      <!-- Start session and redirect to login page if not logged in -->
-<?php
-        session_start();
-
-        if(!isset($_SESSION['loggedin'])){ //if login in session is not set
-            header("Location: page/login.php");
-        }
-?>
 </head>
 
 <body onload=display_ct(); style="padding: 0.5%;">
