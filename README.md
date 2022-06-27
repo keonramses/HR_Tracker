@@ -15,9 +15,22 @@ who is in and has what duty, with them having to call/email most of the time to 
 While this is in no means by itself a perfect product, the implementation of this project aims to fix the aforementioned problem, by making the 
 information that is needed easily available and at a glance, and this would in turn reduce the time lost trying to find out by who has what duty significantly.
 
+[- Update - 25/06/2022]
+- Fixed a bunch of session handling issues for production server use
+- Minor Layout Adjustments 
+
+[TODO]
+- Compile a proper changelog
+- Make Project setup dynamic with little to no code manipulation by user
+- Touch some grass 😅
+
 # Mobile Friendly?
 Unfortunately it is not truly mobile friendly, while it does try this project was never intended for mobile resolutions from its inception and while I would really like to make it so, that is not a main focus at this point in time, but once the project gets
 gets to a stage where all the intended changes and fixes are applied I will make sure to so (please bear with me).
+
+[- Update - 27/06/2022]
+Edit and Add Employee Pages are mobile friendly (fully responsive), but this pages are only accessible to the HR Manager (sigh), with exception to the header which is global. 
+Looking into a feasible arrangement to make the index page tables and pop up element fully responsive. 
 
 # Who can use it?
 That depends on your intended usecase, but this project despite being a pet project is mostly intended for businesses that don't require all the fancy functions 
