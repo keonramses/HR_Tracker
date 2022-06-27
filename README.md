@@ -29,8 +29,8 @@ Unfortunately it is not truly mobile friendly, while it does try this project wa
 gets to a stage where all the intended changes and fixes are applied I will make sure to so (please bear with me).
 
 [- Update - 27/06/2022]
-Edit and Add Employee Pages are mobile friendly (fully responsive), but this pages are only accessible to the HR Manager (sigh), with exception to the header which is global. 
-Looking into a feasible arrangement to make the index page tables and pop up element fully responsive. 
+- Edit and Add Employee Pages are mobile friendly (fully responsive), but this pages are only accessible to the HR Manager (sigh), with exception to the header which is global. 
+- Looking into a feasible arrangement to make the index page tables and pop up element fully responsive. 
 
 # Who can use it?
 That depends on your intended usecase, but this project despite being a pet project is mostly intended for businesses that don't require all the fancy functions 
