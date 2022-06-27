@@ -175,7 +175,7 @@ Once you are logged in please use the import option as shown in the image below 
 ![image](https://user-images.githubusercontent.com/52069413/172273912-980ed168-615a-4b23-bbe6-4462d07d29a3.png)
 
  
-Now you can load the project within your browser using the link: http://127.0.0.1/HRTracker_2/
+Now you can load the project within your browser using the link: http://127.0.0.1/HR_Tracker-main/
 
 Regardless of the sql file you chose you will be greeted with a login page as shown below: 
 
