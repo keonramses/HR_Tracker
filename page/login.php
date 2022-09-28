@@ -17,7 +17,11 @@ $email_err = $password_err = $login_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+
  
+    // Input Validation error echo's below not shown on client side intentionally!
+    // Using html data-validate attribute instead to show empty form input error
+
     // Check if username is empty
     $empty_email = trim($_POST["email"]);
     if(empty($empty_email)){
@@ -98,53 +102,88 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($conn);
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-  
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href=
-    "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <title>Login Page | HRTracker</title>
-    <link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
+	<title>Login Page | HRTracker</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/bootstrap.min.css" integrity="sha512-siwe/oXMhSjGCwLn+scraPOWrJxHlUgMBMZXdPe2Tnk3I0x3ESCoLz7WZ5NTH6SZrywMY+PB1cjyqJ5jAluCOg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" integrity="sha512-rRQtF4V2wtAvXsou4iUAs2kXHi3Lj9NE7xJR77DE7GHsxgY9RTWy93dzMXgDIG8ToiRTD45VsDNdTiUagOFeZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 
 <body>
-  
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div class="login-box">
-            <header id ="header">
-                <span>HRTracker</span>
-            </header>
-            <h1>Login</h1>
-           
-           <?php 
-            if(!empty($login_err)){
-            echo '<div class="alert alert-danger">' . $login_err . '</div>';
-            } ?>
-            <div class="textbox">
-                <i class="fa1 fa fa-user" aria-hidden="true"></i>
-                <input type="text" placeholder="Login Email"
-                         name="email"  class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" 
-                         value="<?php echo $email; ?>">
-                <span class="invalid-feedback"><?php echo $email_err; ?></span>
-            </div>
-  
-            <div class="textbox">
-                <i class="fa1 fa fa-lock" aria-hidden="true"></i>
-                <input type="password" placeholder="Password"
-                name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-                <span class="invalid-feedback"><?php echo $password_err; ?></span>
-            </div>
-  
-            <input class="button" type="submit"
-                     name="login" value="Login">
-            </div>
-</form>
-<footer><div class="well text-center" id="footer"> <small>&copy; Copyright <?php echo date("Y"); ?>, HRTracker (Kenneth Iwuchukwu).</small> </div></footer>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" autocomplete="false">
+
+        <?php if(!empty($login_err)) : ?>
+                <div class="alert alert-danger text-center text-danger fs-19" role="alert">
+                <i class="zmdi zmdi-alert-circle-o"> <?php echo $login_err; ?></i>
+                </div>
+        <?php endif ?>
+                
+                <span class="login100-form-title p-b-26">
+						HRTracker - Login
+					</span>
+
+					<span class="login100-form-title p-b-48">
+						<i class="zmdi zmdi-swap"></i>
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Please Enter Email">
+						<input class="input100" type="text" name="email">
+						<span class="focus-input100" data-placeholder="Email"></span>
+                        <?php echo $email_err; ?>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="password">
+						<span class="focus-input100" data-placeholder="Password"></span>
+                        <?php echo $password_err; ?>
+                        
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Login
+							</button>
+						</div>
+					</div>
+
+					<div class="text-center p-t-115">
+						<span class="txt1">
+							Forgot Password?
+						</span>
+
+						<a class="txt2" href="#">
+							Reset!
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js" integrity="sha512-pYd2QwnzV9JgtoARJf1Ui1q5+p1WHpeAz/M0sUJNprhDviO4zRo12GLlk4/sKBRUCtMHEmjgqo5zcrn8pkdhmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/js/bootstrap.min.js" integrity="sha512-vyRAVI0IEm6LI/fVSv/Wq/d0KUfrg3hJq2Qz5FlfER69sf3ZHlOrsLriNm49FxnpUGmhx+TaJKwJ+ByTLKT+Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="js/login.js"></script>
+    <footer><div class = "footer"> <small>&copy; Copyright <?php echo date("Y"); ?>, HRTracker (Kenneth Iwuchukwu).</small> </div></footer>
+    
 </body>
+
 
 </html>

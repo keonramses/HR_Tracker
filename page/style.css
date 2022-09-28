@@ -198,18 +198,24 @@ body {
   text-transform: capitalize;
 }
 
-#footer {
-  position: fixed;
+.footer {
   text-align: center;
-  bottom: 0;
-  padding: 10px 10px 0px 10px;
+  background-color: gray;
+	color: white;
   width: 100%;
   height: 40px;  
   font-size: 20px;
 }
+.fixed {
+	bottom: 0;
+	position: absolute;
+}
+
 
 .invalid-feedback{
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-align: center;
+  display: block;
   color: #FF0000;
   font-size: 18px;	
 	
