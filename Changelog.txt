@@ -1,4 +1,4 @@
-Complining Changelog from v1-alpha_rc;
+Compiling Changelog from v1-alpha_rc;
 
 
 [v1-alpha_rc] - Jun 25, 2022
