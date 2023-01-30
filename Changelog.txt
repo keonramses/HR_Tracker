@@ -1,0 +1,9 @@
+Complining Changelog from v1-alpha_rc;
+
+
+[v1-alpha_rc] - Jun 25, 2022
+- fixed session handling error that caused users to gain access main index without logging in.
+- fixed session handling error that caused errors to be echoed on page load.
+- call function to destroy an active session before initializing a new one.
+- various styles and layout adjustments.
+- add reply to mail in from sender section for transparency purposes.
