@@ -64,6 +64,11 @@ require_once "page/header.php";
     <div id="loggedin_employee_data" class="table-responsive mb-3" style="width:100%;"></div>
 </div>
 
+<?php if($_SESSION['isAdmin']) : ##<!-- Add Employee Button -->?>
+<div class="mb-3">
+<h2><a href="add.php" class="btn btn-success btn-xs shadow"> <i class="fa fa-plus"><strong> ADD EMPLOYEE </strong></i> </a></h2>
+</div>
+<?php endif ?>
 
 <!-- Employee Data -->
 <div class="panel panel-default">
@@ -71,12 +76,7 @@ require_once "page/header.php";
     <div id="employee_data" class="table-responsive" style="width:100%;"></div>
 </div>
 
- <!-- Add Employee Button -->
- <?php if($_SESSION['isAdmin']) : ?>
-<div class="mb-3">
-    <h2><a href="add.php" class="btn btn-success btn-xs shadow"> <i class="fa fa-plus"><strong> ADD EMPLOYEE </strong></i> </a></h2>
-</div>
-<?php endif ?>
+ 
 
 <!-- Pop-Up (Update Status/Comment) -->
 <?php include "page/employee_popUp.php" ?>
