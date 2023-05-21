@@ -25,8 +25,9 @@ information that is needed easily available and at a glance, and this would in t
 - Touch some grass 😅
 
 # Mobile Friendly?
-Unfortunately it is not truly mobile friendly, while it does try this project was never intended for mobile resolutions from its inception and while I would really like to make it so, that is not a main focus at this point in time, but once the project gets
-gets to a stage where all the intended changes and fixes are applied I will make sure to so (please bear with me).
+~~Unfortunately it is not truly mobile friendly, while it does try this project was never intended for mobile resolutions from its inception and while I would really like to make it so, that is not a main focus at this point in time, but once the project gets to a stage where all the intended changes and fixes are applied I will make sure to so (please bear with me).~~
+
+Yes it is fully mobile friendly, and I am still looking into possible changes to improve UX on mobile.
 
 [- Update - 21/05/2023]
 - Project is now fully mobile friendly.
