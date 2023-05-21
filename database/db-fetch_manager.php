@@ -21,8 +21,8 @@
     }
 
     $output = '
-    <table class="table table-hover rounded border shadow nowrap" style="width:100%" id="managerTable">
-        <thead bgcolor="#E59BFF" class = "shadow">
+    <table class="table table-hover rounded border shadow" style="width:100%" id="managerTable">
+        <thead style="background-color: #E59BFF;"  class = "shadow">
             <tr>
                 <th> Name </th>
                 <th> Local </th>
@@ -57,10 +57,13 @@
 
     $output .= '<script>$(document).ready(function() {
         $("#managerTable").DataTable({
-                "paging":   false, 
-                "info":     false, 
-                "searching":false,
-                stateSave:  true
+            "columnDefs": [
+                { orderable: true, className: "reorder", targets: [0] },
+                { orderable: false, targets: "_all" }
+            ],
+            "dom": "t",
+            "autoWidth": true,
+            "responsive": true
             });
         });
         </script>';

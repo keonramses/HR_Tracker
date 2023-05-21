@@ -19,18 +19,10 @@
     }
 
     $output = '
-    <table class="table table-striped table-responsive caption-top display nowrap rounded border border-info shadow" cellspacing="0" id="loggedInEmployee" style = "margin-left:auto;margin-right:auto">
-    <col style="width:15%">
-    <col style="width:4%">
-    <col style="width:15%">
-    <col style="width:6%">
-    <col style="width:30%">
-    <col style="width:10%">
-    <col style="width:10%">
-    <col style="width:5%">
+    <table class="table table-striped caption-top display rounded border border-info table-bordered shadow caption-top" cellspacing="0" id="loggedInEmployee" >
     <caption>Update Your HRTracker Status | Comment </caption>
-        <thead hidden>
-            <tr class="table-success">
+        <thead>
+            <tr hidden class="table-success">
                 <th> Name </th>
                 <th> Local </th>
                 <th> Cell </th>
@@ -58,7 +50,7 @@
                     <td><nobr>'.showTeams($row["team"]).'</nobr></td>
                     <td>
                         <button type="button" name="update" class="btn btn-success btn-xs shadow update" id="'.$row["id"].'">
-						<i class="	fa fa-chevron-up"></i><span><b>UPDATE</b></span>
+					<span><b>Update Status / Comment</b></span>
         </a>
                         </button>
                     </td>
@@ -79,14 +71,13 @@
     $output .= '<script>
         $(document).ready(function() {
             $("#loggedInEmployee").DataTable({
-                "paging":   false, 
-                "info":     false, 
-                "searching":false,
-                "columnDefs": [
-                    { "orderable": false, "targets": [1, 2, 4, 6, 7] },
-                    { "orderable": true, "targets": [0, 3, 5] }
-                ],
-                "stateSave": true
+                "dom": "t",
+                
+            "columnDefs": [
+                { orderable: false, targets: "_all" }
+            ],
+                "autoWidth": false,
+                "responsive": true
             });
         });
         </script>';

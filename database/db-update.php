@@ -6,6 +6,14 @@
     $selectedID = $_GET['id'];
     $result = mysqli_query($conn,"SELECT * FROM employee WHERE id = '$selectedID'");
 
+    function generate_password($len = 8)
+    {
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $password = substr(str_shuffle($chars), 0, $len);
+        return $password;
+    }
+
+
 // Populate fields to edit based on selected ID from db
     while($row=mysqli_fetch_array($result)){
         $fetchedID = $row['id'];
@@ -31,24 +39,77 @@
         $teamInput = $_POST['team'];
         $team = implode(', ',$teamInput);
         $isManager = $_POST['isManager'];
-        $hasSpecialRole = $_POST['hasSpecialRole'];
+        $hasSpecialRole = $_POST['giveSpecialRole'];
         $email = $_POST['email'];
 
         $sql = "UPDATE employee SET name=?, local=?, cell=?, status=?, comment=?, lastUpdated=?, team=?, isManager=?, hasSpecialRole=?, email=? WHERE id=?";
 
         $stmt = mysqli_stmt_init($conn);
+
         if(!mysqli_stmt_prepare($stmt, $sql)){
-            $flag = 0;
+            $flag = 1;
             echo "Error updating record";
         }
         else{
             mysqli_stmt_bind_param($stmt, "ssssssssssi", $name, $local, $cell, $status, $comment, $lastUpdated, $team, $isManager, $hasSpecialRole, $email, $id);
             mysqli_stmt_execute($stmt);
-            header("Location:index.php");
+            header("Location: index.php");
             exit;
         }
         mysqli_stmt_close($stmt);
     }
+    // Generate Password for User
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generatePasswordBtn'])) {
+        $id = $_GET['id'];
+
+        $info = mysqli_query($conn, "SELECT name, email FROM employee WHERE id='$id'");
+
+        $q1 = mysqli_fetch_array($info);
+
+        $sql = "UPDATE employee SET loginPwd=? WHERE id=?";
+
+        $stmt = mysqli_stmt_init($conn);
+
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            $flag = 4;
+        }
+        else {
+            $password = generate_password();
+            $loginPwd = password_hash($password, PASSWORD_DEFAULT);
+
+            mysqli_stmt_bind_param($stmt, "si", $loginPwd, $id);
+            mysqli_stmt_execute($stmt);
+    
+            // Send password to email after employee password is reset.
+            $headers = 'From: HR Manager <webmaster@test.com>' . "\r\n" .
+                'Reply-To: webmaster@test.com' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+            $msg = "Hello " . $q1['name'] . ",\nYour HRTracker Account Password has been Reset! \nYour New Password is: " . $password;
+            $msg = wordwrap($msg, 70);
+            mail($q1['email'], "HRTracker Password Reset!", $msg, $headers);
+    
+            $flag = 2;
+        }
+        mysqli_stmt_close($stmt);
+    }
+    // Delete Employee Record
+    if (isset($_POST['deleteEmployeeBtn'])) {
+
+        $idToDelete = $_GET['id'];
+        $sql = "DELETE FROM employee WHERE id = ?";
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            echo "Error deleting record";
+        }
+        else{
+            mysqli_stmt_bind_param($stmt, "i", $idToDelete);
+            mysqli_stmt_execute($stmt);
+            header("Location: index.php");
+            exit;
+        }
+        mysqli_stmt_close($stmt);
+    }
+
     mysqli_close($conn);
 	
 ?>

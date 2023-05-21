@@ -27,21 +27,21 @@
         $teamInput = $_POST['team'];
         $team = implode(', ',$teamInput);
         $isManager = $_POST['isManager'];
-        $hasSpecialRole = $_POST['hasSpecialRole'];
+        $hasSpecialRole = $_POST['giveSpecialRole'];
         $email = $_POST['email'];
         $password = generate_password();
         $loginPwd = password_hash($password, PASSWORD_DEFAULT);
         $setLevel = "No";
 
 
-        $sql = "SELECT name FROM employee WHERE name = ?";
+        $sql = "SELECT email FROM employee WHERE email = ?";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sql)){
             $flag = 0;
            
         }
         else{
-            mysqli_stmt_bind_param($stmt, "s", $name);
+            mysqli_stmt_bind_param($stmt, "s", $email);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_store_result($stmt);
             $rowCount = mysqli_stmt_num_rows($stmt);
