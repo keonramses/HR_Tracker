@@ -20,13 +20,17 @@ information that is needed easily available and at a glance, and this would in t
 - Minor Layout Adjustments 
 
 [TODO]
-- Compile a proper changelog
+- Compile a proper changelog - done
 - Make Project setup dynamic with little to no code manipulation by user
 - Touch some grass 😅
 
 # Mobile Friendly?
 Unfortunately it is not truly mobile friendly, while it does try this project was never intended for mobile resolutions from its inception and while I would really like to make it so, that is not a main focus at this point in time, but once the project gets
 gets to a stage where all the intended changes and fixes are applied I will make sure to so (please bear with me).
+
+[- Update - 21/05/2023]
+- Project is now fully mobile friendly.
+
 
 [- Update - 27/06/2022]
 - Edit and Add Employee Pages are mobile friendly (fully responsive), but this pages are only accessible to the HR Manager (sigh), with exception to the header which is global. 
