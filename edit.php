@@ -33,7 +33,6 @@ if (mysqli_num_rows($result) === 0) {
 }
 mysqli_close($conn);
 ?>
-
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 0);
@@ -42,7 +41,6 @@ require_once "page/header.php";
 require_once "database/db-update.php";
 ob_end_flush();
 ?>
-
 <?php
     if ($_SESSION['isAdmin'] && $fetchedID == "") { //if login in session is not set
         header("Location: index.php");

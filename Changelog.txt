@@ -1,4 +1,43 @@
-Compiling Changelog from v1-alpha_rc;
+Changelog complied from v1-alpha_rc;
+
+
+[v1.0.9-alpha_rc] - May 21, 2023
+-----------
+ BUG FIXES
+-----------
+- fixed header overflow when viewing on mobile devices.
+- fixed logged in tag (now in a more visible location).
+- fixed form data being resubmited on page reload.
+- open popups in screen center and keep fixed.
+- move Add Employee Button to top of table.
+- fixed spacing divisions between page elements.
+- removed multi team values from team filter.
+- fixed alerts not showing when new password is generated.
+- fixed error handling on login page.
+- fixed error that caused the invalid record check to trigger after a valid record is edited.
+
+---------
+ UPDATES
+---------
+
+- disabled saveState on tables and remove ordering on status.
+- disabled scroll when dialog box is open.
+- all pages are now full responsive on mobile devices.
+- added character limit to comment box.
+- removed datatables default length menu and search box.
+- added custom length menu and search box.
+- added custom team and status filter.
+- bumped bootstrap, datatable, and jquery ui versions.
+- remove multi team select feature
+    (from a business standpoint a user should only
+    be a part of one team to reduce conflict of interest).
+- added error handling for when records that don't exist are
+    loaded via edit.php?id="non existing records / invalid record id format".
+- merge password reset and employee deletion functions into db-update file.
+- deleted db-delete.php and db-resetPass files.
+- added bootstrap modals to handle password generation and record deletion functions.
+- added bootsstrap modal to handle logout function.
+- added password reset functionality on login page.
 
 
 [v1-alpha_rc] - Jun 25, 2022

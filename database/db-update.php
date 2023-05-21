@@ -84,7 +84,7 @@
             $headers = 'From: HR Manager <webmaster@test.com>' . "\r\n" .
                 'Reply-To: webmaster@test.com' . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
-            $msg = "Hello " . $q1['name'] . ",\nYour HRTracker Account Password has been Reset! \nYour New Password is: " . $password;
+            $msg = "Hello " . $q1['name'] . ",\n\nYour HRTracker Account Password has been Reset! \n\nNew Password: " . $password;
             $msg = wordwrap($msg, 70);
             mail($q1['email'], "HRTracker Password Reset!", $msg, $headers);
     
