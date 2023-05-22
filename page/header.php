@@ -1,4 +1,9 @@
-<?php session_start();
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+error_reporting(E_ALL);
+ini_set("display_errors", 0);
 // set cookie samesite attribute to SameSite=Lax, which prevents the cookie from being sent in a cross-site request.
 // This behavior protects user data from accidentally leaking to third parties and cross-site request forgery.
 if (isset($_COOKIE["PHPSESSID"])) {
@@ -26,7 +31,7 @@ if (!isset($_SESSION['loggedin'])) { //if login in session is not set
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-   
+
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
@@ -50,7 +55,7 @@ if (!isset($_SESSION['loggedin'])) { //if login in session is not set
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta3/js/bootstrap-select.min.js" integrity="sha512-yrOmjPdp8qH8hgLfWpSFhC/+R9Cj9USL8uJxYIveJZGAiedxyIxwNw4RsLDlcjNlIRR4kkHaDHSmNHAkxFTmgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-    
+
     <!-- Date & Live Time -->
     <script type="text/javascript">
         function display_c() {
@@ -60,19 +65,19 @@ if (!isset($_SESSION['loggedin'])) { //if login in session is not set
 
         function display_ct() {
             const currentDate = new Date();
-const options = {
-  weekday: 'short',
-  month: 'short',
-  day: 'numeric',
-  year: 'numeric',
-  hour: 'numeric',
-  minute: 'numeric',
-};
-const timeZoneOptions = {
-  timeZoneName: 'long'
-};
+            const options = {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+            };
+            const timeZoneOptions = {
+                timeZoneName: 'long'
+            };
 
-const formattedDate = currentDate.toLocaleString('en-US', options).replace(/,/g, ' ') + ' (' + new Intl.DateTimeFormat('en-US', timeZoneOptions).formatToParts(currentDate).find(part => part.type === 'timeZoneName').value + ')';
+            const formattedDate = currentDate.toLocaleString('en-US', options).replace(/,/g, ' ') + ' (' + new Intl.DateTimeFormat('en-US', timeZoneOptions).formatToParts(currentDate).find(part => part.type === 'timeZoneName').value + ')';
             document.getElementById('ct').innerHTML = formattedDate;
             display_c();
         }

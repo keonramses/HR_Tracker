@@ -1,6 +1,8 @@
 <?php
 // Initialize the session
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ini_set("display_errors", 0);
 
 // Check if the user is already logged in, if yes then redirect to index page
@@ -13,7 +15,8 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 include "../database/db.php";
 
 // Function to generate a random password
-function generatePassword($len = 8) {
+function generatePassword($len = 8)
+{
     $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     $password = substr(str_shuffle($chars), 0, $len);
     return $password;
@@ -53,19 +56,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['resetPassBtn'])) {
             $headers = 'From: HR Manager <webmaster@test.com>' . "\r\n" .
                 'Reply-To: webmaster@test.com' . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
-            $msg = "Hello " . $user['name'] . ",\nYour HRTracker Account Password has been Reset! \nYour New Password is: " . $newPassword;
+            $msg = "Hello " . $user['name'] . ",\n\nYour HRTracker Account Password has been Reset! \n\nYour New Password is: " . $newPassword;
             $msg = wordwrap($msg, 70);
 
             if (mail($user['email'], "HRTracker Password Reset!", $msg, $headers)) {
-                $reset_ok="An email with the new password has been sent to your email address.";
+                $reset_ok = "An email with the new password has been sent to your email address.";
             } else {
-                $login_err="Failed to send an email. Please contact the administrator.";
+                $login_err = "Failed to send an email. Please contact the administrator.";
             }
         }
 
         mysqli_stmt_close($stmt);
     } else {
-        $login_err="The email address does not exist.";
+        $login_err = "The email address does not exist.";
     }
 }
 
@@ -73,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['resetPassBtn'])) {
 
 
 // Processing form data when form is submitted
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['loginBtn']) ) {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['loginBtn'])) {
 
 
     // Input Validation error echo's below not shown on client side intentionally!
@@ -147,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['loginBtn']) ) {
                     $login_err = "Incorrect Email or Password";
                 }
             } else {
-                $login_err="Oops! Something went wrong. Please try again later.";
+                $login_err = "Oops! Something went wrong. Please try again later.";
             }
 
             // Close statement
@@ -230,23 +233,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['loginBtn']) ) {
                             Forgot Password?
                         </span>
 
-                         <!-- Button to trigger the modal -->
-    <button type="button" class="text-danger" id="resetButton">
-        RESET!
-    </button>
+                        <!-- Button to trigger the modal -->
+                        <button type="button" class="text-danger" id="resetButton">
+                            RESET!
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
- <!-- Bootstrap Modal -->
- <div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" aria-hidden="true">
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="lead modal-title" id="resetModalLabel">Reset Password</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> </button>
                 </div>
                 <div class="modal-body">
                     <form method="POST" action="">
@@ -257,7 +260,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['loginBtn']) ) {
                         <br>
                         <form action="" method="post" id="resetPasswordForm">
                             <button type="submit" class=" lead btn btn-danger" id="resetPassBtn" name="resetPassBtn">Reset Password</button>
-                    </form>
+                        </form>
                 </div>
             </div>
         </div>
@@ -280,16 +283,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['loginBtn']) ) {
         });
     </script>
     <script>
-if ( window.history.replaceState ) {
-  window.history.replaceState( null, null, window.location.href );
-}
-</script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 
     <footer>
         <div class="footer"> <small>&copy; Copyright <?php echo date("Y"); ?>, HRTracker (Kenneth Iwuchukwu).</small> </div>
     </footer>
 
 </body>
-
 
 </html>
