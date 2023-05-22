@@ -19,7 +19,7 @@ Changelog complied from v1-alpha_rc;
 ---------
  UPDATES
 ---------
-
+- updated error handling and session logic.
 - disabled saveState on tables and remove ordering on status.
 - disabled scroll when dialog box is open.
 - all pages are now full responsive on mobile devices.
