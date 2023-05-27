@@ -5,7 +5,12 @@ A web based human resource tool, that helps keep track of employees whilst provi
 
 
 Demo: https://hrtracker.000webhostapp.com/ 
-( The default HR Manager login email is test@email.com and password is: 12345 )
+
+[Logins] 
+- [HR-Manager]: test@email.com
+- [Employee]: we@test.com
+
+Password is: 12345
 
 # Why does this exist?
 In light of the pandemic that has brought most of the world to a grinding halt, organizations and businesses having to switch to a work from home model, but this in itself has brought along with it a problem, not every organization has a functioning human resource tracker, thereby causing a lapse in information on 
