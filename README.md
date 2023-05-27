@@ -6,7 +6,7 @@ A web based human resource tool, that helps keep track of employees whilst provi
 
 Demo: https://hrtracker.000webhostapp.com/ 
 
-[Logins] \n
+[Logins] -
    [HR-Manager]: test@email.com \n
    [Employee]: we@test.com
 
