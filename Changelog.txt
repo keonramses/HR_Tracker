@@ -29,8 +29,7 @@ Changelog complied from v1-alpha_rc;
 - added custom team and status filter.
 - bumped bootstrap, datatable, and jquery ui versions.
 - remove multi team select feature
-    (from a business standpoint a user should only
-    be a part of one team to reduce conflict of interest).
+    (from a business standpoint a user should only be a part of one team to reduce conflict of interest).
 - added error handling for when records that don't exist are
     loaded via edit.php?id="non existing records / invalid record id format".
 - merge password reset and employee deletion functions into db-update file.
