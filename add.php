@@ -12,7 +12,6 @@ if (!$_SESSION['isAdmin']) {
     exit;
 }
 ?>
-
 <?php
 require_once "page/header.php";
 require_once "database/db-insert.php";

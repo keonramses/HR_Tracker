@@ -53,12 +53,6 @@ require_once "page/header.php";
 require_once "database/db-update.php";
 ob_end_flush();
 ?>
-<?php
-if ($_SESSION['isAdmin'] && $fetchedID == "") { //if login in session is not set
-    header("Location: index.php");
-}
-?>
-
 
 <div class="panel panel-default">
 
