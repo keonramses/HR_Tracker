@@ -55,7 +55,7 @@ include "database/db-populate.php";
             <a class="btn btn-secondary btn-xs shadow" href="index.php"><i class="fa fa-arrow-left"> </i> Back</a>
         </div>
 
-        <form action="add.php" method="post">
+        <form action="add.php" method="post" onkeydown="return event.key != 'Enter';">
             <!-- Name -->
             <div class="mb-3">
                 <label for="name">Name</label>

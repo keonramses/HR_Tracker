@@ -111,7 +111,7 @@ ob_end_flush();
                 <i class="fa fa-trash"></i></a>
         </div>
         <br>
-        <form action="edit.php" method="post">
+        <form action="edit.php" method="post" onkeydown="return event.key != 'Enter';">
             <!-- ID -->
             <input type="hidden" name="id" id="id" class="form-control" value="<?php echo $fetchedID; ?>">
             <!-- Name -->
