@@ -196,7 +196,7 @@ Regardless of which SQL file you chose, you will be greeted with a login page as
 The default HR Manager login email is test@email.com and the password is: 12345
 Login and have fun.
 
-![image](https://github.com/keonramses/HR_Tracker/assets/52069413/466fd5cb-9d05-4486-abee-06cfe5426904)
+![image](https://github.com/keonramses/HR_Tracker/assets/52069413/5d04b576-cd0f-44a0-98c6-251db8ae1d76)
 
 
 
